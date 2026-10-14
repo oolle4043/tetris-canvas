@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080a10" />
+    <meta name="description" content="설치 없이 브라우저에서 즐기는 Canvas 블록 퍼즐 게임" />
+    <title>NEON STACK — Canvas Tetris</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-a" aria-hidden="true"></div>
+    <div class="ambient ambient-b" aria-hidden="true"></div>
+
+    <main class="page">
+      <header class="site-header">
+        <a class="logo" href="#" aria-label="Neon Stack 홈">
+          <span class="logo-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span>NEON<span>STACK</span></span>
+        </a>
+        <p><i></i> BROWSER ARCADE · READY</p>
+      </header>
+
+      <section class="game-section">
+        <div class="copy-block">
+          <p class="overline">HTML5 CANVAS / 01</p>
+          <h1>쌓고.<br /><span>지우고.</span><br />버텨라.</h1>
+          <p class="intro">빈틈을 메워 한 줄을 완성하세요.<br />레벨이 오를수록 낙하 속도가 빨라집니다.</p>
+
+          <dl class="keyboard-help">
+            <div><dt><kbd>←</kbd><kbd>→</kbd></dt><dd>이동</dd></div>
+            <div><dt><kbd>↑</kbd></dt><dd>회전</dd></div>
+            <div><dt><kbd>↓</kbd></dt><dd>내리기</dd></div>
+            <div><dt><kbd>SPACE</kbd></dt><dd>바로 놓기</dd></div>
+            <div><dt><kbd>P</kbd></dt><dd>일시정지</dd></div>
+          </dl>
+        </div>
+
+        <div class="arcade" aria-label="테트리스 게임">
+          <section class="board-shell">
+            <div class="board-topline">
+              <span>GRID_10×20</span>
+              <b id="status">READY</b>
+            </div>
+            <div class="board-wrap">
+              <canvas id="board" width="300" height="600" aria-label="게임 보드"></canvas>
+              <div class="overlay" id="overlay">
+                <span>NEON STACK</span>
+                <h2 id="overlayTitle">첫 블록을<br />놓아볼까요?</h2>
+                <p id="overlayCopy">방향키 또는 화면 버튼으로 조작하세요.</p>
+                <button id="overlayButton" type="button">게임 시작 <b>↗</b></button>
+              </div>
+            </div>
+          </section>
+
+          <aside class="dashboard">
+            <section class="panel score-panel">
+              <span class="panel-label">SCORE</span>
+              <strong id="score">000000</strong>
+              <p><span>BEST</span><b id="best">000000</b></p>
+            </section>
+
+            <section class="panel next-panel">
+              <span class="panel-label">NEXT</span>
+              <canvas id="next" width="120" height="96" aria-label="다음 블록"></canvas>
+            </section>
+
+            <section class="panel split-panel">
+              <div><span class="panel-label">LINES</span><strong id="lines">00</strong></div>
+              <div><span class="panel-label">LEVEL</span><strong id="level">01</strong></div>
+            </section>
+
+            <button class="pause-button" id="pauseButton" type="button" disabled>
+              <span id="pauseIcon">Ⅱ</span><span id="pauseText">일시정지</span>
+            </button>
+            <button class="restart-button" id="restartButton" type="button">↻ 새 게임</button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="touch-controls" aria-label="터치 조작">
+        <button type="button" data-action="left" aria-label="왼쪽 이동">←</button>
+        <button type="button" data-action="rotate" aria-label="회전">↻</button>
+        <button type="button" data-action="right" aria-label="오른쪽 이동">→</button>
+        <button type="button" data-action="down" aria-label="아래로 이동">↓</button>
+        <button class="drop" type="button" data-action="drop">DROP</button>
+      </section>
+
+      <footer>
+        <span>NEON STACK © 2026</span>
+        <span>NO INSTALL · JUST PLAY</span>
+      </footer>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
+

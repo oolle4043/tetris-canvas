@@ -1,0 +1,8 @@
+.git.open-failed/
+.git.publish-failed/
+.git.safe-failed/
+*.tar.gz
+preview-*.png
+.preview-profile-*/
+.preview-edge-*/
+
